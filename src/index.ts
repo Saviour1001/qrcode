@@ -1,4 +1,13 @@
-import { ethers } from "ethers";
+import QRCode from "qrcode";
 
-const wallet = ethers.Wallet.createRandom();
-console.log(wallet);
+QRCode.toFile(
+  "./file.png",
+  "x.com/mehtabasmoon",
+  {
+    errorCorrectionLevel: "H",
+  },
+  function (err) {
+    if (err) throw err;
+    console.log("QR code saved!");
+  }
+);
